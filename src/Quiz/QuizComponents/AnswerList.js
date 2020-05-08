@@ -1,18 +1,24 @@
 import React from 'react'
 import { Answer } from './Answer'
 
-export const AnswerList = ({ Answers , index, result, setIndex }) => {
+export const AnswerList = ({ answers , correctAns, index, setResult, setIndex }) => {
     
-    return (
+    function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+      }
+      
+   var newArr = shuffle([answers, correctAns].flat()) // combine incorrect and correct answers flatten and then shuffle
+       return (
         <>
-        {Answers.map(({text, correct}) =>
+        {newArr.map((text) => 
          <Answer 
                 text={text} 
-                correct ={correct} 
-                result={result}
+                correct ={correctAns} 
+                setResult={setResult}
                 setIndex={setIndex} 
                 index={index} 
                 />)}
+      
        </> 
     )
 }

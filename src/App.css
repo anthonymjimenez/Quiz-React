@@ -1,0 +1,39 @@
+html {
+    max-width: 1000px;
+  margin:auto;
+  min-width: 200px;
+  padding-left: 50px;
+  padding-right:50px;
+  text-align: center;
+  font-size: 30px;
+  color:black;
+}
+
+button{
+    margin: 10px;
+    font-size: 20px;
+
+}
+
+.scoreboard {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.toggle {
+    display: inline-block;
+}
+.float {
+  background: lightgreen;
+  border: solid green 1px;
+  float: left;
+}
+.half {
+     width: 100%;
+}
+
+.questions {
+    margin-top: 50%;
+    width: 100%;
+    height: 100%;
+    border: solid green 1px;
+}

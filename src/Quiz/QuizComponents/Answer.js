@@ -1,15 +1,16 @@
 import React from 'react'
-
-export const Answer = ({ text, correct, result, setIndex, index}) => {
+import he from 'he'
+export const Answer = ({ text, correct, setResult, setIndex, index}) => {
     function answerResult() {
         setIndex(index + 1);
-        (correct === true) ? result(true) : result(false)
+        (correct === text) ? setResult(true) : setResult(false) 
 
-    }
+    }    
+    var decode = he.decode(String(text))
+
     return (
         <button onClick={answerResult}>
-            {text}
-            {correct}
+            {decode}
         </button>
     
     )
