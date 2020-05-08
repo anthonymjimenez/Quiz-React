@@ -1,3 +1,7 @@
-This quiz app is a work in progress!
+This quiz fetches data from Trivia DB (https://opentdb.com/api_config.php) and selects from different categories and difficulties to display a personalized quiz application.
 
-Currently it supports 'abcd' questions using react hooks. I am looking to eventually add more types of questions and fetch my questions from an API. Thanks for checking out and feel free to help. 
+Technology used:
+Axios
+React Hooks 
+React 
+he - (decoding library)
