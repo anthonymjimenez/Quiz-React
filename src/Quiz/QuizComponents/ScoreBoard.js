@@ -12,7 +12,6 @@ export const ScoreBoard = ({ result, index, setRight, right }) => {
     const score = right / index
     return (
         <div className = "scoreboard">
-        <p>Created by Anthony Jimenez</p>
         <div>Correct Answers: {right}</div>
         <div>Total Questions:{index}</div>
        {(index) ? <div>Current Score: {score}</div> : (<div> Start answering to update score! </div>)}

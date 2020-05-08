@@ -76,7 +76,8 @@ export const Quiz = () => {
     return ( 
     
         <>
-        <ScoreBoard result={result} index={index} setRight = {setRight} right = {right} />
+        <h1>Created by Anthony Jimenez</h1>
+
 
         <div className = 'float half'>
         <p>Current difficulty: {difficulty}</p>
@@ -94,6 +95,8 @@ export const Quiz = () => {
         <button onClick = {categorySports}>Sports</button>
         <button onClick = {categoryBooks}> Books</button>
         </div>
+        
+        <ScoreBoard result={result} index={index} setRight = {setRight} right = {right} />
 
         <div className = 'questions'>
         <Question Questions={questionData[index]}/>
