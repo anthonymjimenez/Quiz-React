@@ -46,7 +46,7 @@ export const Quiz = () => {
       else if(category === "computers") { categoryNumber = 18}
       else if(category === "sports") { categoryNumber = 21}
       else if(category === "books") { categoryNumber = 10}
-      // the api defines category in terms of numbers, this is how we get the current category to be a relevent string
+      // the api defines category in terms of numbers
 
       getData(difficulty, categoryNumber)
       // the call to getData makes a request on the triva API that implements template strings that
