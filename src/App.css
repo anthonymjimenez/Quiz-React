@@ -1,5 +1,5 @@
 html {
-    max-width: 1000px;
+  max-width: 1000px;
   margin:auto;
   min-width: 200px;
   padding-left: 50px;
@@ -12,28 +12,33 @@ html {
 button{
     margin: 10px;
     font-size: 20px;
+}
 
+h2 {
+    margin-top: 10%;
 }
 
 .scoreboard {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-.toggle {
-    display: inline-block;
-}
-.float {
-  background: lightgreen;
-  border: solid green 1px;
-  float: left;
-}
-.half {
-     width: 100%;
+    border: solid black 1px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
+.toggle {
+  background: #3D9970;
+  font-size: 18px;
+  display: inline-block;
+  padding-left: 12%;
+  padding-right: 6%;
+}
+
+.toggle button {
+    font-size: 15px;
+}
+
+
 .questions {
-    margin-top: 50%;
     width: 100%;
     height: 100%;
-    border: solid green 1px;
+    border: solid #001f3f 1px;
 }
