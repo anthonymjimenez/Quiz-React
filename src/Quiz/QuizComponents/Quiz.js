@@ -67,7 +67,7 @@ export const Quiz = () => {
         <>
         <h2>Created by Anthony Jimenez</h2>
 
-        <div className = 'toggle half'>
+        <div className = 'toggle'>
         <p>Choose difficulty!</p> 
         <p>Current difficulty: {difficulty}</p>
         <button onClick={easyDifficulty}>Easy</button>
@@ -75,7 +75,7 @@ export const Quiz = () => {
         <button onClick={hardDifficulty}>Hard</button>
         </div>
 
-        <div className = 'toggle half'>
+        <div className = 'toggle'>
         <p>Choose category!</p>
         <p>Current category: {category}</p>
         <button onClick = {categoryVG}>Video Games</button>
@@ -84,10 +84,12 @@ export const Quiz = () => {
         <button onClick = {categoryBooks}> Books</button>
         </div>
 
-        <div className = 'questions'>
+        <div className = 'border'>
         <ScoreBoard result={result} index={index} setRight = {setRight} right = {right} />
+        <div className = 'questions'>
         <Question Questions={questionData[index]}/>
         <AnswerList answers={answerData[index]} correctAns ={correctAnsData[index]} index = {index} setResult = {setResult} setIndex = {setIndex}/>
+        </div>
         </div>
         </>
     )
