@@ -6,4 +6,4 @@ React Hooks,
 React,
 he - (decoding library)
 
-[![Run on Repl.it](https://repl.it/badge/github/securethebags/react-Quiz)](https://repl.it/github/securethebags/react-Quiz)
+Currently hosted at https://anthonyjimenez.me
