@@ -14,7 +14,7 @@ export const ScoreBoard = ({ result, index, setRight, right }) => {
         <div className = "scoreboard">
         <div>Correct Answers: {right}</div>
         <div>Total Questions:{index}</div>
-       {(index) ? <div>Current Score: {score}</div> : (<div> Start answering to update score! </div>)}
+       {(index) ? (<div>Current Score: {score}</div>) : (<div> Start answering to update score! </div>)}
         
 
         </div>
