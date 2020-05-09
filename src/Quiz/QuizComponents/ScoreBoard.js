@@ -13,7 +13,7 @@ export const ScoreBoard = ({ result, index, setRight, right }) => {
     return (
         <div className = "scoreboard">
         <div>Correct Answers: {right}</div>
-        <div>Total Questions:{index}</div>
+        <div>Total Questions: {index}</div>
        {(index) ? (<div>Current Score: {score}</div>) : (<div> Start answering to update score! </div>)}
         
 
