@@ -7,3 +7,5 @@ React,
 he - (decoding library)
 
 Currently hosted at https://anthonyjimenez.me
+
+Next up I will be making this site more mobile friendly ^-^
