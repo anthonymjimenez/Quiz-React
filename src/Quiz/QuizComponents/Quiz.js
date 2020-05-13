@@ -20,7 +20,7 @@ export const Quiz = () => {
   // hooks used for game logic
     var [ index, setIndex ] = useState(0)
     var [ result, setResult ] = useState(null)
-    var [right, setRight] = useState(0)
+    var [ right, setRight ] = useState(0)
 
   const getData = async (diff, cat) => { //API call to a trivia database (diff, cat) -> strings that determine API call
         try {
@@ -41,7 +41,7 @@ export const Quiz = () => {
       // this useEffect listens for changes to difficulty and or category
       var categoryNumber;
 
-      if(category === "video Games") { categoryNumber = 15;}
+      if(category === "video games") { categoryNumber = 15;}
       else if(category === "computers") { categoryNumber = 18;}
       else if(category === "sports") { categoryNumber = 21;}
       else if(category === "books") { categoryNumber = 10;}
