@@ -1,81 +1,83 @@
-import React, {useState, useEffect} from 'react'
-import { AnswerList } from './AnswerList';
-import { Question }  from './Question';
-import { ScoreBoard } from './ScoreBoard';
-import axios from 'axios';
-import { Toggle } from './Toggle';
+import React, { useState } from "react";
+import { AnswerList } from "./AnswerList";
+import { Question } from "./Question";
+import { ScoreBoard } from "./ScoreBoard";
+import { Toggle } from "./Toggle";
+import { Jumbotron } from "reactstrap";
+import QuestionHeader from "./QuestionHeader";
+import GameOver from "./GameOver";
+import ScoreHeader from "./ScoreHeader";
+import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-    const [questionData, setQuestionData] = useState([]) 
-    const [answerData, setAnsData] = useState([])
-    const [correctAnsData, setCorrectAnsData] = useState([])
-    
-    const [loading, setLoading] = useState(null)
-    const [fail, setFail] = useState(null)
-    
-    var [ difficulty, setDifficulty ] = useState('hard')
-    var [category, setCategory] = useState('computers')
-    
+  const [questionData, setQuestionData] = useState([]);
+
   // hooks used for game logic
-    var [ index, setIndex ] = useState(0)
-    var [ result, setResult ] = useState(null)
-    var [ right, setRight ] = useState(0)
+  var [index, setIndex] = useState(0);
+  var [result, setResult] = useState(null);
+  const [right, setRight] = useState(0);
 
-  const getData = async (diff, cat) => { //API call to a trivia database (diff, cat) -> strings that determine API call
-        try {
-          setLoading(true);
-          const incomingData = await axios.get(`https://opentdb.com/api.php?amount=10&category=${cat}&difficulty=${diff}&type=multiple`);
-          setLoading(false);
-          setQuestionData(incomingData.data.results.map(({ question }) => question));
-          setAnsData(incomingData.data.results.map(({ incorrect_answers }) => incorrect_answers));
-          setCorrectAnsData(incomingData.data.results.map(({ correct_answer }) => correct_answer)); 
-        }
-        catch (err) {
-          setFail(true);
-          console.error(err);
-        }
-  };
+  //hooks for visibiltiy
+  const [toggleView, setToggleView] = useState(true);
+  const [gameIsOver, setGameOver] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const questions = questionData.map(({ question }) => [question]);
 
-    useEffect(() => {
-      // this useEffect listens for changes to difficulty and or category
-      var categoryNumber;
+  const category = questionData.map(({ category }) => category);
+  const answers = questionData.map(({ incorrect_answers, correct_answer }) =>
+    [correct_answer, incorrect_answers].flat()
+  );
+  //
 
-      if(category === "video games") { categoryNumber = 15;}
-      else if(category === "computers") { categoryNumber = 18;}
-      else if(category === "sports") { categoryNumber = 21;}
-      else if(category === "books") { categoryNumber = 10;}
-      // the api defines category in terms of numbers
+  return (
+    <>
+      {toggleView && (
+        <Toggle
+          setQuestionData={setQuestionData}
+          setToggleView={setToggleView}
+          setIndex={setIndex}
+          setLoading={setLoading}
+        />
+      )}
+      {!toggleView &&
+        !gameIsOver &&
+        (isLoading ? (
+          <LoadingSpin />
+        ) : (
+          <Jumbotron>
+            <QuestionHeader
+              category={category[index]}
+              setToggleView={setToggleView}
+            />
+            <Question question={questions[index]} />
+            <AnswerList
+              answers={answers[index]}
+              index={index}
+              setResult={setResult}
+              setIndex={setIndex}
+            />
+          </Jumbotron>
+        ))}
 
-      getData(difficulty, categoryNumber)
-      // the call to getData makes a request on the triva API that implements template strings that
-      // easily changes the API request to match user input
-    },[difficulty, category])
-    
-   
-    useEffect(() => {
-      if(index === questionData.length || loading === true) { 
-      // useEffect to reset the values that scoreboard implements
-      setIndex(0);
-      setRight(0);
-      setResult(false);
-    }}, [index, loading])
-   
-    if (fail) return "This application failed to connect to API Check your console for more error information!";
-    if (loading) return "loading...";
+      {gameIsOver && (
+        <Jumbotron>
+          <ScoreHeader
+            setToggleView={setToggleView}
+            setGameOver={setGameOver}
+          />
+          <ScoreBoard right={right} finalScore={right / index} />
+        </Jumbotron>
+      )}
 
-    return (     
-        <>
-        <h2>Created by Anthony Jimenez</h2>
-        <Toggle difficulty={difficulty} category={category} setDifficulty={setDifficulty} setCategory = {setCategory}/>
-        <div className = 'border'>
-        <ScoreBoard result={result} index={index} setRight = {setRight} right = {right} />
-        <div className = 'questions'>
-        <Question Questions={questionData[index]}/>
-        <AnswerList answers={answerData[index]} correctAns ={correctAnsData[index]} index = {index} setResult = {setResult} setIndex = {setIndex}/>
-        </div>
-        </div>
-        </>
-    )
-
-    }
+      <GameOver
+        right={right}
+        setRight={setRight}
+        quizLength={questions.length}
+        setGameOver={setGameOver}
+        result={result}
+        index={index}
+      />
+    </>
+  );
+};

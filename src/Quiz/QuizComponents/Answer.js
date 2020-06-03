@@ -1,17 +1,15 @@
-import React from 'react'
-import he from 'he'
-export const Answer = ({ text, correct, setResult, setIndex, index}) => {
-    function answerResult() {
-        setIndex(index + 1);
-        (correct === text) ? setResult(true) : setResult(false) 
+import React from "react";
+import he from "he";
+import { Button } from "reactstrap";
+export const Answer = ({ text, correct, setResult, setIndex, index }) => {
+  function answerResult() {
+    setIndex(index + 1);
+    correct === text ? setResult(true) : setResult(false);
+  }
 
-    }    
-    var decode = he.decode(String(text))
+  console.log(correct);
 
-    return (
-        <button onClick={answerResult}>
-            {decode}
-        </button>
-    
-    )
-}
+  var decode = he.decode(String(text));
+
+  return <Button onClick={answerResult}>{decode}</Button>;
+};

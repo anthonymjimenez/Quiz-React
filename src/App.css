@@ -1,50 +1,6 @@
 html {
-  max-width: 1000px;
-  margin:auto;
-  min-width: 200px;
-  padding-left: 50px;
-  padding-right:50px;
-  text-align: center;
-  color:black;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
 }
-
   
-button{
-    margin: 10px;
-    font-size: 20px;
-}
-
-h2 {
-    margin-top: 5%;
-}
-
-.scoreboard {
-    border: solid black 1px;
-    padding-top: 20px;
-    font-size: 25px;
-    padding-bottom: 20px;
-}
-
-.toggle {
-  background: #3D9970;
-  font-size: 18px;
-  display: inline-block;
-  padding-left: 12%;
-  padding-right: 6%;
-  margin-bottom: 15px;
-}
-
-.toggle button {
-    font-size: 15px;
-}
-
-.border {
-    width: 100%;
-    height: 100%;
-    border: solid #001f3f 1px;
-}
-
-.questions {
-    font-size: 35px;
-    padding-top: 20px;
-}

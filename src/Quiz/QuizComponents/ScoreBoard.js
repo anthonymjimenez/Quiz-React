@@ -1,29 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from "react";
+import { scoreFormatted } from "../utils/utils";
+export const ScoreBoard = ({ finalScore, right }) => {
+  // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers
 
-export const ScoreBoard = ({ result, index, setRight, right }) => {
-    
-    useEffect(() => {
-        if(result === true ) { 
-            setRight(right + 1)
-        }
-  
-    }, [index]);
+  return (
+    <>
+      <>
+        <h1 className="display-4">Correct Answers: {right}</h1>
+        <hr className="my-2" />
 
-    const score = right / index
-    var scoreFormatted;
+        <h1 className="display-4">
+          Final Score: %{scoreFormatted(finalScore)}
+        </h1>
 
-    if(score === 1) {scoreFormatted = 100}
-    else if(score === 0) {scoreFormatted = 0}
-    else {scoreFormatted = score.toFixed(2) * 100}
-
-    return (
-        <div className = "scoreboard">
-        <div>Correct Answers: {right}</div>
-        <div>Total Questions: {index}</div>
-       {(index) ? (<div>Current Score: %{scoreFormatted}</div>) : (<div> Start answering to update score! </div>)}
-        
-        </div>
-    )
-
-    
-    }
+        <hr className="my-2" />
+      </>
+      <p lead>Thanks for checking out my project 👋🏽</p>
+    </>
+  );
+};
