@@ -70,12 +70,13 @@ export const Toggle = ({
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
+            <option value={0}>General Knowledge</option>
             <option value={18}>Computers</option>
             <option value={15}>Video Games</option>
             <option value={10}>Books</option>
             <option value={21}>Sports</option>
             <option value={20}>Mythology</option>
-            <option value={24}>Politics</option>
+            <option value={27}>Animals</option>
           </Input>
         </FormGroup>
 

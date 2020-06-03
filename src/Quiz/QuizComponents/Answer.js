@@ -11,5 +11,9 @@ export const Answer = ({ text, correct, setResult, setIndex, index }) => {
 
   var decode = he.decode(String(text));
 
-  return <Button onClick={answerResult}>{decode}</Button>;
+  return (
+    <Button className="ansButton" onClick={answerResult}>
+      {decode}
+    </Button>
+  );
 };
