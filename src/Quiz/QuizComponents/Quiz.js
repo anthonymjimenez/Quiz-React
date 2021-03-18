@@ -14,7 +14,7 @@ export const Quiz = () => {
   const [questionData, setQuestionData] = useState({});
 
   // hooks used for game logic
-  var [result, setResult] = useState(null);
+  var [userAnswer, setUserAnswer] = useState("");
   const [rightAnswers, setRightAnswers] = useState(0);
 
   //hooks for visibility
@@ -44,7 +44,7 @@ export const Quiz = () => {
             <Question questionData={questionData} />
             <AnswerList
               answers={questionData}
-              setResult={setResult}
+              setUserAnswer={setUserAnswer}
               setGameOver={setGameOver}
               setQuestionData={setQuestionData}
             />
@@ -67,7 +67,7 @@ export const Quiz = () => {
       <GameOver
         setRight={setRightAnswers}
         questionData={questionData}
-        result={result}
+        userAnswer={userAnswer}
       />
     </>
   );

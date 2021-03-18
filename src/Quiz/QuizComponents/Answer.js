@@ -3,23 +3,20 @@ import he from "he";
 import { Button } from "reactstrap";
 export const Answer = ({
   text,
-  correct,
-  setResult,
+  setUserAnswer,
   quizLength,
   setQuestionData,
   setGameOver,
   index,
 }) => {
   function answerResult() {
-    correct === text ? setResult(true) : setResult(false);
+    setUserAnswer(text);
     setQuestionData((previousState) => {
       return { ...previousState, index: previousState.index + 1 };
     });
 
     if (index + 1 === quizLength) setGameOver(true);
   }
-
-  console.log(correct);
 
   var decode = he.decode(String(text));
 

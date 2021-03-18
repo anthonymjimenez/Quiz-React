@@ -3,7 +3,7 @@ import { Answer } from "./Answer";
 
 export const AnswerList = ({
   answers: { questions, index },
-  setResult,
+  setUserAnswer,
   setGameOver,
   setQuestionData,
 }) => {
@@ -25,8 +25,7 @@ export const AnswerList = ({
       {shuffle(arrayCheck(answersArray)).map((text) => (
         <Answer
           text={text}
-          correct={correctAns}
-          setResult={setResult}
+          setUserAnswer={setUserAnswer}
           quizLength={questions.length}
           index={index}
           setQuestionData={setQuestionData}
