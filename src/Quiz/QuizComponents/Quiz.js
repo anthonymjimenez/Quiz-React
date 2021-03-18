@@ -11,24 +11,16 @@ import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-  const [questionData, setQuestionData] = useState([]);
+  const [questionData, setQuestionData] = useState({});
 
   // hooks used for game logic
-  var [index, setIndex] = useState(0);
   var [result, setResult] = useState(null);
-  const [right, setRight] = useState(0);
+  const [rightAnswers, setRightAnswers] = useState(0);
 
-  //hooks for visibiltiy
+  //hooks for visibility
   const [toggleView, setToggleView] = useState(true);
   const [gameIsOver, setGameOver] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const questions = questionData.map(({ question }) => [question]);
-
-  const category = questionData.map(({ category }) => category);
-  const answers = questionData.map(({ incorrect_answers, correct_answer }) =>
-    [correct_answer, incorrect_answers].flat()
-  );
-  //
 
   return (
     <>
@@ -36,7 +28,6 @@ export const Quiz = () => {
         <Toggle
           setQuestionData={setQuestionData}
           setToggleView={setToggleView}
-          setIndex={setIndex}
           setLoading={setLoading}
         />
       )}
@@ -47,15 +38,15 @@ export const Quiz = () => {
         ) : (
           <Jumbotron>
             <QuestionHeader
-              category={category[index]}
+              category={questionData}
               setToggleView={setToggleView}
             />
-            <Question question={questions[index]} />
+            <Question questionData={questionData} />
             <AnswerList
-              answers={answers[index]}
-              index={index}
+              answers={questionData}
               setResult={setResult}
-              setIndex={setIndex}
+              setGameOver={setGameOver}
+              setQuestionData={setQuestionData}
             />
           </Jumbotron>
         ))}
@@ -66,17 +57,17 @@ export const Quiz = () => {
             setToggleView={setToggleView}
             setGameOver={setGameOver}
           />
-          <ScoreBoard right={right} finalScore={right / index} />
+          <ScoreBoard
+            rightAnswers={rightAnswers}
+            quizLength={questionData?.questions?.length}
+          />
         </Jumbotron>
       )}
 
       <GameOver
-        right={right}
-        setRight={setRight}
-        quizLength={questions.length}
-        setGameOver={setGameOver}
+        setRight={setRightAnswers}
+        questionData={questionData}
         result={result}
-        index={index}
       />
     </>
   );

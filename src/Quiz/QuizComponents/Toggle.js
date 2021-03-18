@@ -22,16 +22,19 @@ export const Toggle = ({
   const [category, setCategory] = useState(18);
   const [questionAmount, setQuestionAmount] = useState(10);
   const [questionType, setQuestionType] = useState("multiple");
-
+  const [bonus, setBonus] = useState(0);
   // make getData in Toggle and use DataHooks as props
-  const getData = async (difficulty, category, amount, type) => {
-    //API call to a trivia database (diff, cat) -> strings that determine API call
+  const getData = async (difficulty, category, amount, type, bonus) => {
     try {
       setLoading(true);
       const incomingData = await axios.get(
         `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
       );
-      setQuestionData(incomingData.data.results);
+      setQuestionData({
+        questions: [...incomingData.data.results],
+        bonus: bonus,
+        index: 0,
+      });
       setLoading(false);
     } catch (err) {
       console.error(err);
@@ -45,9 +48,8 @@ export const Toggle = ({
         // reset game data
         onSubmit={(e) => {
           e.preventDefault();
-          getData(difficulty, category, questionAmount, questionType);
+          getData(difficulty, category, questionAmount, questionType, bonus);
           setToggleView(false);
-          setIndex(0);
         }}
       >
         <FormGroup row>
@@ -104,6 +106,15 @@ export const Toggle = ({
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True or False</option>
           </Input>
+        </FormGroup>
+
+        <FormGroup row>
+          <Label>Choose Bonus Amount: </Label>
+          <Input
+            type="number"
+            value={questionType}
+            onChange={(e) => setBonus(e.target.value)}
+          ></Input>
         </FormGroup>
 
         <Button color="primary">Submit</Button>

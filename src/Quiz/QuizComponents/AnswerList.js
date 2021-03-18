@@ -1,10 +1,17 @@
 import React from "react";
 import { Answer } from "./Answer";
 
-export const AnswerList = ({ answers, index, setResult, setIndex }) => {
-  // [reportText, setReportText] <- grabs 'text' answer from Answer
-  // create report from here
-  if (answers) var correctAns = answers[0];
+export const AnswerList = ({
+  answers: { questions, index },
+  setResult,
+  setGameOver,
+  setQuestionData,
+}) => {
+  let answersArray = [
+    questions[index]?.correct_answer,
+    ...questions[index]?.incorrect_answers,
+  ];
+  let correctAns = answersArray[0];
 
   const shuffle = (array) => {
     return array.sort(() => Math.random() - 0.5);
@@ -15,13 +22,15 @@ export const AnswerList = ({ answers, index, setResult, setIndex }) => {
 
   return (
     <>
-      {shuffle(arrayCheck(answers)).map((text) => (
+      {shuffle(arrayCheck(answersArray)).map((text) => (
         <Answer
           text={text}
           correct={correctAns}
           setResult={setResult}
-          setIndex={setIndex}
+          quizLength={questions.length}
           index={index}
+          setQuestionData={setQuestionData}
+          setGameOver={setGameOver}
         />
       ))}
     </>
