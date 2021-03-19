@@ -11,10 +11,10 @@ import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-  const [questionData, setQuestionData] = useState({});
-
+  const [questionData, setQuestionData] = useState([]);
+  const [report, setReport] = useState([]);
   // hooks used for game logic
-  var [userAnswer, setUserAnswer] = useState("");
+  const [userAnswer, setUserAnswer] = useState("");
   const [rightAnswers, setRightAnswers] = useState(0);
 
   //hooks for visibility
@@ -43,6 +43,8 @@ export const Quiz = () => {
             />
             <Question questionData={questionData} />
             <AnswerList
+              report={report}
+              setReport={setReport}
               answers={questionData}
               setUserAnswer={setUserAnswer}
               setGameOver={setGameOver}
@@ -59,6 +61,7 @@ export const Quiz = () => {
           />
           <ScoreBoard
             rightAnswers={rightAnswers}
+            report={report}
             quizLength={questionData?.questions?.length}
           />
         </Jumbotron>

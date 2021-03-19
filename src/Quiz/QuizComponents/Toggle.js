@@ -12,12 +12,7 @@ import {
 } from "reactstrap";
 
 //toggle logic and toggle container ?? time to split up
-export const Toggle = ({
-  setQuestionData,
-  setToggleView,
-  setIndex,
-  setLoading,
-}) => {
+export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
   const [difficulty, setDifficulty] = useState("easy");
   const [category, setCategory] = useState(18);
   const [questionAmount, setQuestionAmount] = useState(10);
@@ -108,14 +103,14 @@ export const Toggle = ({
           </Input>
         </FormGroup>
 
-        <FormGroup row>
+        {/* <FormGroup row>
           <Label>Choose Bonus Amount: </Label>
           <Input
             type="number"
             value={questionType}
             onChange={(e) => setBonus(e.target.value)}
           ></Input>
-        </FormGroup>
+        </FormGroup> */}
 
         <Button color="primary">Submit</Button>
       </Form>

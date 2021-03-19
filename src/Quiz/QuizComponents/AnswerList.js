@@ -3,16 +3,17 @@ import { Answer } from "./Answer";
 
 export const AnswerList = ({
   answers: { questions, index },
-  setUserAnswer,
+  report,
   setGameOver,
+  setReport,
   setQuestionData,
 }) => {
+  let question = questions[index];
   let answersArray = [
     questions[index]?.correct_answer,
     ...questions[index]?.incorrect_answers,
   ];
-  let correctAns = answersArray[0];
-
+  let correctAnswer = question.correct_answer;
   const shuffle = (array) => {
     return array.sort(() => Math.random() - 0.5);
   };
@@ -24,8 +25,11 @@ export const AnswerList = ({
     <>
       {shuffle(arrayCheck(answersArray)).map((text) => (
         <Answer
+          report={report}
+          question={question}
           text={text}
-          setUserAnswer={setUserAnswer}
+          correctAnswer={correctAnswer}
+          setReport={setReport}
           quizLength={questions.length}
           index={index}
           setQuestionData={setQuestionData}

@@ -3,19 +3,41 @@ import he from "he";
 import { Button } from "reactstrap";
 export const Answer = ({
   text,
-  setUserAnswer,
+  question,
+  correctAnswer,
+  setReport,
   quizLength,
   setQuestionData,
   setGameOver,
   index,
+  report,
 }) => {
   function answerResult() {
-    setUserAnswer(text);
+    //  setUserAnswer((answer) => (answer = text));
+    //console.log(text);
     setQuestionData((previousState) => {
       return { ...previousState, index: previousState.index + 1 };
     });
-
-    if (index + 1 === quizLength) setGameOver(true);
+    setReport((report) => [
+      ...report,
+      {
+        question: question,
+        correct_answer: correctAnswer,
+        userAnswer: text,
+      },
+    ]);
+    console.log(report);
+    if (index + 1 === quizLength) {
+      setGameOver(true);
+      setReport((report) => [
+        ...report,
+        {
+          question: question,
+          correct_answer: correctAnswer,
+          userAnswer: text,
+        },
+      ]);
+    }
   }
 
   var decode = he.decode(String(text));
