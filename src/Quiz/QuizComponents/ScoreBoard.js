@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { scoreFormatted } from "../utils/utils";
-export const ScoreBoard = ({ rightAnswers, quizLength }) => {
+export const ScoreBoard = ({ rightAnswers, quizLength, report }) => {
   // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers
 
   return (
@@ -15,6 +15,7 @@ export const ScoreBoard = ({ rightAnswers, quizLength }) => {
 
         <hr className="my-2" />
       </>
+      {console.log(report)}
       <p lead>Thanks for checking out my project 👋🏽</p>
     </>
   );

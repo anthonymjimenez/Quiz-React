@@ -15,28 +15,20 @@ export const Answer = ({
   function answerResult() {
     //  setUserAnswer((answer) => (answer = text));
     //console.log(text);
+
     setQuestionData((previousState) => {
       return { ...previousState, index: previousState.index + 1 };
     });
     setReport((report) => [
       ...report,
       {
-        question: question,
+        question: question.question,
         correct_answer: correctAnswer,
         userAnswer: text,
       },
     ]);
-    console.log(report);
     if (index + 1 === quizLength) {
       setGameOver(true);
-      setReport((report) => [
-        ...report,
-        {
-          question: question,
-          correct_answer: correctAnswer,
-          userAnswer: text,
-        },
-      ]);
     }
   }
 
