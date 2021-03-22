@@ -21,8 +21,8 @@ export const AnswerList = ({
       {shuffle(answersArray).map((text) => (
         <Answer
           key={text}
-          question={question}
-          text={text}
+          questionData={question}
+          answer={text}
           setReport={setReport}
           quizLength={questions.length}
           index={index}

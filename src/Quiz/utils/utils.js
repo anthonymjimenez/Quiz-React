@@ -1,9 +1,11 @@
-export function scoreFormatted(score) {
-  if (score === 1) {
-    return 100;
-  } else if (score === 0) {
-    return 0;
-  } else {
-    return score.toFixed(2) * 100;
-  }
+export function scoreFormatted(rightAnswer, quizLength) {
+  return (100 * rightAnswer) / quizLength;
+}
+
+export function findCorrectAnswerAmount(report) {
+  return report.reduce((acc, curr) => {
+    console.log(acc, curr.correctAnswer, curr.userAnswer);
+    if (curr.correctAnswer === curr.userAnswer) return acc + 1;
+    else return acc;
+  }, 0);
 }

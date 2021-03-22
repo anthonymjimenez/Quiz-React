@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ToggleHeader from "./ToggleHeader";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 //toggle logic and toggle container ?? time to split up
 export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
@@ -17,7 +9,6 @@ export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
   const [category, setCategory] = useState(18);
   const [questionAmount, setQuestionAmount] = useState(10);
   const [questionType, setQuestionType] = useState("multiple");
-  const [bonus, setBonus] = useState(0);
   // make getData in Toggle and use DataHooks as props
   const getData = async (difficulty, category, amount, type, bonus) => {
     try {
@@ -27,7 +18,6 @@ export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
       );
       setQuestionData({
         questions: [...incomingData.data.results],
-        bonus: bonus,
         index: 0,
       });
       setLoading(false);
@@ -43,7 +33,7 @@ export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
         // reset game data
         onSubmit={(e) => {
           e.preventDefault();
-          getData(difficulty, category, questionAmount, questionType, bonus);
+          getData(difficulty, category, questionAmount, questionType);
           setToggleView(false);
         }}
       >

@@ -1,12 +1,12 @@
 import React from "react";
-import { ListGroupItem } from "reactstrap";
+import { ListGroupItem, ListGroup } from "reactstrap";
 import he from "he";
 
-export default function ReportItem({ correct_answer, question, user_answer }) {
+export default function ReportItem({ correctAnswer, question, userAnswer }) {
   return (
     <>
-      <ListGroupItem>
-        {correct_answer === user_answer ? (
+      <ListGroup>
+        {correctAnswer === userAnswer ? (
           <> Correct &#9989; </>
         ) : (
           <> Incorrect &#10062;</>
@@ -16,10 +16,10 @@ export default function ReportItem({ correct_answer, question, user_answer }) {
         </ListGroupItem>
 
         <ListGroupItem className="justify-content-between">
-          {`Your Answer: ${he.decode(String(user_answer))}\n`}
-          {`Correct Answer: ${he.decode(String(correct_answer))}\n`}
+          {`Your Answer: ${he.decode(String(userAnswer))}\n`}
+          {`Correct Answer: ${he.decode(String(correctAnswer))}\n`}
         </ListGroupItem>
-      </ListGroupItem>
+      </ListGroup>
     </>
   );
 }

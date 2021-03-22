@@ -4,12 +4,12 @@ import React from "react";
 export default function ReportList({ report }) {
   return (
     <ListGroup>
-      {report.map(({ correct_answer, question, user_answer }) => (
+      {report.map(({ correctAnswer, question, userAnswer }) => (
         <>
           <ReportItem
-            correct_answer={correct_answer}
+            correctAnswer={correctAnswer}
             question={question}
-            user_answer={user_answer}
+            userAnswer={userAnswer}
           />
         </>
       ))}

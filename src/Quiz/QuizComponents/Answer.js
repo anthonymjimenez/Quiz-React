@@ -2,8 +2,8 @@ import React from "react";
 import he from "he";
 import { Button } from "reactstrap";
 export const Answer = ({
-  text,
-  question,
+  answer,
+  questionData: { question, correct_answer },
   setReport,
   quizLength,
   setQuestionData,
@@ -12,26 +12,26 @@ export const Answer = ({
 }) => {
   function answerResult() {
     setQuestionData((previousState) => {
-      return { ...previousState, index: previousState.index + 1 };
+      return { ...previousState, index: previousState.index + 1 }; // increment index
     });
     setReport((report) => [
       ...report,
       {
-        question: question.question,
-        correct_answer: question.correct_answer,
-        user_answer: text,
-      },
+        question: question,
+        correctAnswer: correct_answer,
+        userAnswer: answer,
+      }, // sets new report object while maintaining existing state
     ]);
     if (index + 1 === quizLength) {
-      setGameOver(true);
+      setGameOver(true); // triggers rendering of GameOver components
     }
   }
 
-  var decode = he.decode(String(text));
+  const decodedAnswer = he.decode(String(answer)); // he is a package that decodes strings
 
   return (
     <Button className="ansButton" onClick={answerResult}>
-      {decode}
+      {decodedAnswer}
     </Button>
   );
 };
