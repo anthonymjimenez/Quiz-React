@@ -9,7 +9,7 @@ export const Question = ({ questionData: { questions, index } }) => {
   return (
     <div>
       <hr className="my-2" />
-      <h1 className="display-5" lead>
+      <h1 className="display-5 lead">
         {console.log(questions[index])}
         {decode}
       </h1>

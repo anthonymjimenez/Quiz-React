@@ -4,18 +4,13 @@ import { Button } from "reactstrap";
 export const Answer = ({
   text,
   question,
-  correctAnswer,
   setReport,
   quizLength,
   setQuestionData,
   setGameOver,
   index,
-  report,
 }) => {
   function answerResult() {
-    //  setUserAnswer((answer) => (answer = text));
-    //console.log(text);
-
     setQuestionData((previousState) => {
       return { ...previousState, index: previousState.index + 1 };
     });
@@ -23,8 +18,8 @@ export const Answer = ({
       ...report,
       {
         question: question.question,
-        correct_answer: correctAnswer,
-        userAnswer: text,
+        correct_answer: question.correct_answer,
+        user_answer: text,
       },
     ]);
     if (index + 1 === quizLength) {

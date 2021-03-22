@@ -5,7 +5,6 @@ import { ScoreBoard } from "./ScoreBoard";
 import { Toggle } from "./Toggle";
 import { Jumbotron } from "reactstrap";
 import QuestionHeader from "./QuestionHeader";
-import GameOver from "./GameOver";
 import ScoreHeader from "./ScoreHeader";
 import LoadingSpin from "./LoadingSpin";
 
@@ -13,9 +12,6 @@ export const Quiz = () => {
   // hooks used in relation to API Call
   const [questionData, setQuestionData] = useState([]);
   const [report, setReport] = useState([]);
-  // hooks used for game logic
-  const [userAnswer, setUserAnswer] = useState("");
-  const [rightAnswers, setRightAnswers] = useState(0);
 
   //hooks for visibility
   const [toggleView, setToggleView] = useState(true);
@@ -43,10 +39,8 @@ export const Quiz = () => {
             />
             <Question questionData={questionData} />
             <AnswerList
-              report={report}
               setReport={setReport}
               answers={questionData}
-              setUserAnswer={setUserAnswer}
               setGameOver={setGameOver}
               setQuestionData={setQuestionData}
             />
@@ -60,18 +54,11 @@ export const Quiz = () => {
             setGameOver={setGameOver}
           />
           <ScoreBoard
-            rightAnswers={rightAnswers}
             report={report}
             quizLength={questionData?.questions?.length}
           />
         </Jumbotron>
       )}
-
-      <GameOver
-        setRight={setRightAnswers}
-        questionData={questionData}
-        userAnswer={userAnswer}
-      />
     </>
   );
 };

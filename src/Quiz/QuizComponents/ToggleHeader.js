@@ -1,11 +1,11 @@
 import React from "react";
-import { Jumbotron, Container, Link } from "reactstrap";
+import { Jumbotron, Container } from "reactstrap";
 
 export default function ToggleHeader() {
   return (
     <Jumbotron fluid>
       <Container fluid>
-        <h1 className="display-3">A quiz with options.</h1>
+        <h1 className="lead display-3">A quiz with options.</h1>
         <p className="lead">
           test your knowledge and take a quiz! <br />
           Created by{" "}
