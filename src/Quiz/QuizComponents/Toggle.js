@@ -93,14 +93,6 @@ export const Toggle = ({ setQuestionData, setToggleView, setLoading }) => {
           </Input>
         </FormGroup>
 
-        {/* <FormGroup row>
-          <Label>Choose Bonus Amount: </Label>
-          <Input
-            type="number"
-            value={questionType}
-            onChange={(e) => setBonus(e.target.value)}
-          ></Input>
-        </FormGroup> */}
 
         <Button color="primary">Submit</Button>
       </Form>
