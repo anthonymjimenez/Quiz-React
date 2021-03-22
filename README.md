@@ -6,9 +6,7 @@ React Hooks,
 React,
 he - (decoding library)
 
-Currently hosted at https://anthonyjimenez.me
-
-Next up I will be making this site more mobile friendly ^-^
+Currently hosted at https://yesnote.netlify.app/
 
 IMPORTANT: If you are going to clone and run locally please be sure to run 
 `npm i` so that dependencies can download 
