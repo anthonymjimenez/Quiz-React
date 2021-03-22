@@ -3,15 +3,15 @@ import ReportList from "./ReportList";
 import { scoreFormatted } from "../utils/utils";
 export const ScoreBoard = ({ quizLength, report }) => {
   // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers
-  let 
+  let rightAnswer = 0;
   return (
     <>
       <>
-        <h1 className="display-4">Correct Answers: {rightAnswers}</h1>
+        <h1 className="display-4">Correct Answers: {rightAnswer}</h1>
         <hr className="my-2" />
 
         <h1 className="display-4">
-          Final Score: {scoreFormatted(rightAnswers / quizLength)}%
+          Final Score: {scoreFormatted(rightAnswer, quizLength)}%
         </h1>
 
         <hr className="my-2" />
