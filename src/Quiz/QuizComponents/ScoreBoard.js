@@ -3,7 +3,7 @@ import ReportList from "./ReportList";
 import { scoreFormatted } from "../utils/utils";
 export const ScoreBoard = ({ quizLength, report }) => {
   // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers
-
+  let 
   return (
     <>
       <>
