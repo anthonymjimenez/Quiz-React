@@ -1,25 +1,34 @@
 import React from "react";
-import { ListGroupItem, ListGroup } from "reactstrap";
 import he from "he";
 
 export default function ReportItem({ correctAnswer, question, userAnswer }) {
+  let isCorrect = correctAnswer === userAnswer;
+
+  // add flexbox instead of line 21 for experience
   return (
     <>
-      <ListGroup>
-        {correctAnswer === userAnswer ? (
-          <> Correct &#9989; </>
-        ) : (
-          <> Incorrect &#10062;</>
-        )}
-        <ListGroupItem className="justify-content-between">
+      <div className={`report-wrapper `}>
+        <div
+          className={`report-question ${
+            isCorrect ? "green-border" : "red-border"
+          }`}
+        >
           {`Question: ${he.decode(String(question))}\n`}
-        </ListGroupItem>
+        </div>
 
-        <ListGroupItem className="justify-content-between">
-          {`Your Answer: ${he.decode(String(userAnswer))}\n`}
-          {`Correct Answer: ${he.decode(String(correctAnswer))}\n`}
-        </ListGroupItem>
-      </ListGroup>
+        <div
+          className={`${
+            isCorrect ? "report-answer-right" : "report-answer-wrong"
+          }`}
+        >
+          <div id="user-answer">
+            {!isCorrect && `Your Answer: ${he.decode(String(userAnswer))}`}
+          </div>
+          <div id="correct-answer">
+            {`Correct Answer: ${he.decode(String(correctAnswer))}`}
+          </div>
+        </div>
+      </div>
     </>
   );
 }
