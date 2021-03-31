@@ -16,7 +16,7 @@ export const Report = ({ quizLength, report }) => {
       </div>
       <ReportList report={report} />
       {console.log(report)}
-      <p className="lead">Thanks for checking out my project 👋🏽</p>
+      <p id="thank-you">Thanks for checking out my project 👋🏽</p>
     </div>
   );
 };
