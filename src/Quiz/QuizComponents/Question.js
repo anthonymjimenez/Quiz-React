@@ -1,6 +1,5 @@
 import React from "react";
 import he from "he";
-import { Button } from "reactstrap";
 export const Question = ({ questionData: { questions, index } }) => {
   // he is a oddly named library that decodes html into string values
 

@@ -10,23 +10,12 @@ import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-  const [questionData, setQuestionData] = useState({ questions: [1, 2] });
-  const [report, setReport] = useState([
-    {
-      question: "How old am I?",
-      userAnswer: "Too Old",
-      correctAnswer: "Too Old",
-    },
-    {
-      question: "How old am I?",
-      userAnswer: "Too Old",
-      correctAnswer: "Not old enough",
-    },
-  ]);
+  const [questionData, setQuestionData] = useState([]);
+  const [report, setReport] = useState([]);
 
   //hooks for visibility
-  const [toggleView, setToggleView] = useState(false);
-  const [gameIsOver, setGameOver] = useState(true);
+  const [toggleView, setToggleView] = useState(true);
+  const [gameIsOver, setGameOver] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
   return (
