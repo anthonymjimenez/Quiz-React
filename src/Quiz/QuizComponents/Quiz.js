@@ -14,8 +14,8 @@ export const Quiz = () => {
   const [report, setReport] = useState([]);
 
   //hooks for visibility
-  const [toggleView, setToggleView] = useState(false);
-  const [gameIsOver, setGameOver] = useState(true);
+  const [toggleView, setToggleView] = useState(true);
+  const [gameIsOver, setGameOver] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
   return (
