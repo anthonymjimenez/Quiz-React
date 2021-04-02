@@ -4,7 +4,7 @@ import he from "he";
 export default function ReportItem({ correctAnswer, question, userAnswer }) {
   let isCorrect = correctAnswer === userAnswer;
 
-  // add flexbox instead of line 21 for experience
+  // add shadow to report items
   return (
     <>
       <div className={`report-wrapper `}>

@@ -1,26 +1,80 @@
 html {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 2%;
+  width: 100vw;
+  margin: 0;
+  height: 100%;
+  overflow: scroll;
 }
-
+.layout {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 .ansButton {
   margin-right: 4%;
 }
-
+.shadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 5px 6px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
 .report {
   background-color: aliceblue;
   padding: 2em;
+  width: 45%;
+  margin: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#game-over-wrapper {
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 100%;
+  min-height: 100vh;
+  padding: 50px;
+  background-color: rgba(33, 152, 114, 0.227);
+  flex-direction: column;
+}
+
+@media (max-width: 2200px) {
+  .report {
+    width: 50%;
+  }
+}
+@media (max-width: 2200px) {
+  .report {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .report {
+    width: 80%;
+  }
+}
+@media (max-width: 1100px) {
+  .report {
+    width: 90%;
+  }
+  #game-over-wrapper {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 .report-answer-right {
   border: 3px solid #5f886a35;
   text-align: center;
   padding: 0.7em;
 }
-
 .report-answer-wrong {
   border: 3px solid rgba(255, 0, 0, 0.2);
   padding: 0.7em;
+}
+
+#score-header-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .report-wrapper {
@@ -33,7 +87,7 @@ html {
   font-weight: bold;
 }
 .report-question {
-  border-bottom: 2px solid rgba(34, 139, 34, 0.529);
+  border-bottom: 2px solid rgba(34, 139, 137, 0.529);
 }
 .report-question-wrong {
   border-bottom: 2px solid rgba(255, 0, 0, 0.529);

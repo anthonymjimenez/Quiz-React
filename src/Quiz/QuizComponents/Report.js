@@ -5,7 +5,7 @@ export const Report = ({ quizLength, report }) => {
   // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers
   let rightAnswer = findCorrectAnswerAmount(report);
   return (
-    <div className="report">
+    <>
       <h1 id="quiz-title">Quiz Report</h1>
       <div className="quiz-result">
         <h3>Final Score: {scoreFormatted(rightAnswer, quizLength)}%</h3>
@@ -22,6 +22,6 @@ export const Report = ({ quizLength, report }) => {
           👋🏽
         </span>
       </p>
-    </div>
+    </>
   );
 };

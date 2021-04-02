@@ -10,12 +10,23 @@ import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-  const [questionData, setQuestionData] = useState([]);
-  const [report, setReport] = useState([]);
+  const [questionData, setQuestionData] = useState([1, 2]);
+  const [report, setReport] = useState([
+    {
+      question: "Heloo",
+      userAnswer: "f",
+      correctAnswer: "f",
+    },
+    {
+      question: "Helgoo",
+      userAnswer: "fg",
+      correctAnswer: "f",
+    },
+  ]);
 
   //hooks for visibility
-  const [toggleView, setToggleView] = useState(true);
-  const [gameIsOver, setGameOver] = useState(false);
+  const [toggleView, setToggleView] = useState(false);
+  const [gameIsOver, setGameOver] = useState(true);
   const [isLoading, setLoading] = useState(false);
 
   return (
@@ -48,17 +59,21 @@ export const Quiz = () => {
         ))}
 
       {gameIsOver && (
-        <>
-          <ScoreHeader
-            setReport={setReport}
-            setToggleView={setToggleView}
-            setGameOver={setGameOver}
-          />
-          <Report
-            report={report}
-            quizLength={questionData?.questions?.length}
-          />
-        </>
+        <div id="game-over-wrapper">
+          <div id="score-header-wrapper">
+            <ScoreHeader
+              setReport={setReport}
+              setToggleView={setToggleView}
+              setGameOver={setGameOver}
+            />
+          </div>
+          <div className="report shadow">
+            <Report
+              report={report}
+              quizLength={questionData?.questions?.length}
+            />
+          </div>
+        </div>
       )}
     </>
   );
