@@ -10,19 +10,8 @@ import LoadingSpin from "./LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
-  const [questionData, setQuestionData] = useState([1, 2]);
-  const [report, setReport] = useState([
-    {
-      question: "Heloo",
-      userAnswer: "f",
-      correctAnswer: "f",
-    },
-    {
-      question: "Helgoo",
-      userAnswer: "fg",
-      correctAnswer: "f",
-    },
-  ]);
+  const [questionData, setQuestionData] = useState([]);
+  const [report, setReport] = useState([]);
 
   //hooks for visibility
   const [toggleView, setToggleView] = useState(false);
