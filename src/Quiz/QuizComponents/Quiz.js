@@ -21,30 +21,36 @@ export const Quiz = () => {
   return (
     <>
       {toggleView && (
-        <Toggle
-          setQuestionData={setQuestionData}
-          setToggleView={setToggleView}
-          setLoading={setLoading}
-        />
+        <div id="home-wrapper">
+          <div className="home-screen shadow">
+            <Toggle
+              setQuestionData={setQuestionData}
+              setToggleView={setToggleView}
+              setLoading={setLoading}
+            />
+          </div>
+        </div>
       )}
       {!toggleView &&
         !gameIsOver &&
         (isLoading ? (
           <LoadingSpin />
         ) : (
-          <Jumbotron>
-            <QuestionHeader
-              category={questionData}
-              setToggleView={setToggleView}
-            />
-            <Question questionData={questionData} />
-            <AnswerList
-              setReport={setReport}
-              answers={questionData}
-              setGameOver={setGameOver}
-              setQuestionData={setQuestionData}
-            />
-          </Jumbotron>
+          <div id="question-wrapper">
+            <Jumbotron>
+              <QuestionHeader
+                category={questionData}
+                setToggleView={setToggleView}
+              />
+              <Question questionData={questionData} />
+              <AnswerList
+                setReport={setReport}
+                answers={questionData}
+                setGameOver={setGameOver}
+                setQuestionData={setQuestionData}
+              />
+            </Jumbotron>
+          </div>
         ))}
 
       {gameIsOver && (

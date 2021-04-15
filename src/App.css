@@ -16,7 +16,8 @@ html {
   -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
   box-shadow: 3px 3px 5px 6px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
-.report {
+.report,
+.home-screen {
   background-color: aliceblue;
   padding: 2em;
   width: 45%;
@@ -25,8 +26,9 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
-
-#game-over-wrapper {
+#game-over-wrapper,
+#home-wrapper,
+#question-wrapper {
   margin-left: 5%;
   margin-right: 5%;
   height: 100%;
@@ -37,29 +39,55 @@ html {
 }
 
 @media (max-width: 2200px) {
-  .report {
+  .report,
+  .home-screen {
     width: 50%;
   }
 }
 @media (max-width: 2200px) {
-  .report {
+  .report,
+  .home-screen {
     width: 60%;
   }
 }
 
 @media (max-width: 1500px) {
-  .report {
+  .report,
+  .home-screen {
     width: 80%;
   }
 }
 @media (max-width: 1100px) {
-  .report {
+  .report,
+  .home-screen {
     width: 90%;
+  }
+
+  #game-over-wrapper,
+  #home-wrapper {
+    margin-left: 0;
+    margin-right: 0;
   }
   #game-over-wrapper {
     padding: 0;
-    margin-left: 0;
-    margin-right: 0;
+  }
+}
+@media (max-width: 900px) {
+  .home-screen {
+    width: 100%;
+  }
+  #home-screen-title {
+    font-size: 50px;
+  }
+  #home-wrapper {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+@media (max-width: 250px) {
+  #home-screen-title {
+    font-size: 20px;
   }
 }
 .report-answer-right {
