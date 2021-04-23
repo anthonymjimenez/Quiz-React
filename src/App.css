@@ -38,16 +38,16 @@ html {
   flex-direction: column;
 }
 
-@media (max-width: 2200px) {
+@media (max-width: 3000px) {
   .report,
   .home-screen {
-    width: 50%;
+    width: 70%;
   }
 }
-@media (max-width: 2200px) {
+@media (max-width: 1800px) {
   .report,
   .home-screen {
-    width: 60%;
+    width: 75%;
   }
 }
 
@@ -64,7 +64,8 @@ html {
   }
 
   #game-over-wrapper,
-  #home-wrapper {
+  #home-wrapper,
+  #question-wrapper {
     margin-left: 0;
     margin-right: 0;
   }
@@ -74,20 +75,34 @@ html {
 }
 @media (max-width: 900px) {
   .home-screen {
-    width: 100%;
+    width: 95%;
   }
   #home-screen-title {
     font-size: 50px;
   }
-  #home-wrapper {
+
+  #question-text {
+    font-size: 30px;
+  }
+
+  #category-text,
+  #report-notification-text {
+    font-size: 20px;
+  }
+
+  #home-wrapper,
+  #question-wrapper,
+  #question-wrapper {
     padding-left: 3%;
     padding-right: 3%;
   }
 }
 
-@media (max-width: 250px) {
-  #home-screen-title {
-    font-size: 20px;
+@media (max-width: 300px) {
+  #home-screen-title,
+  #category-text,
+  #report-notification-text {
+    font-size: 15px;
   }
 }
 .report-answer-right {

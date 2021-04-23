@@ -10,12 +10,12 @@ export default function QuestionHeader({
         Head back to Toggle View
       </Button>
       {console.log(index)}
-      <h1 className="display-4">{`${questions[index]?.category} quiz`}</h1>
-      <h4 className="display-8">
+      <h1 id="category-text">{`${questions[index]?.category} quiz`}</h1>
+      <h5 id="report-notification-text">
         {index === 0 && (
           <> When the quiz is done you'll be able to check out your report</>
         )}
-      </h4>
+      </h5>
     </>
   );
 }
