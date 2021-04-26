@@ -6,15 +6,18 @@ export const Report = ({ quizLength, report }) => {
   let rightAnswer = findCorrectAnswerAmount(report);
   return (
     <>
-      <h1 id="quiz-title">Quiz Report</h1>
-      <div className="quiz-result">
-        <h3>Final Score: {scoreFormatted(rightAnswer, quizLength)}%</h3>
+      <div id="quiz-report-title-text">
+        <h1 id="quiz-title">Quiz Report</h1>
+        <div className="quiz-result">
+          <h3>Final Score: {scoreFormatted(rightAnswer, quizLength)}%</h3>
 
-        <h3>
-          {rightAnswer}/{quizLength} Correct
-        </h3>
+          <h3>
+            {rightAnswer}/{quizLength} Correct
+          </h3>
+        </div>
       </div>
       <ReportList report={report} />
+
       {console.log(report)}
       <p id="thank-you">
         Thanks for checking out my project{" "}

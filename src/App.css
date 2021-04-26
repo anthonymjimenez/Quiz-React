@@ -8,6 +8,12 @@ html {
   margin-left: 5%;
   margin-right: 5%;
 }
+.report-question,
+.report-question-wrong {
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
 .ansButton {
   margin-right: 4%;
 }
@@ -26,6 +32,14 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
+#question-text {
+  font-size: 40px;
+}
+#question-text,
+.ansButton {
+  font-weight: normal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 #game-over-wrapper,
 #home-wrapper,
 #question-wrapper {
@@ -41,7 +55,7 @@ html {
 @media (max-width: 3000px) {
   .report,
   .home-screen {
-    width: 70%;
+    width: 60%;
   }
 }
 @media (max-width: 1800px) {
@@ -85,34 +99,79 @@ html {
     font-size: 30px;
   }
 
-  #category-text,
-  #report-notification-text {
+  #category-text {
     font-size: 20px;
   }
-
+  #report-notification-text {
+    font-size: 15px;
+  }
   #home-wrapper,
   #question-wrapper,
   #question-wrapper {
     padding-left: 3%;
     padding-right: 3%;
   }
+  .report-answer-right,
+  .report-answer-wrong {
+    width: 100%;
+  }
+
+  #quiz-report-title-text,
+  #quiz-title {
+    font-size: x-large;
+  }
+  .quiz-result,
+  h3 {
+    font-size: large;
+  }
+  .report-question,
+  .report-question-wrong {
+    font-size: smaller;
+  }
 }
 
 @media (max-width: 300px) {
   #home-screen-title,
-  #category-text,
+  #category-text {
+    font-size: 13px;
+  }
+  #question-text {
+    font-size: 23px;
+  }
+
   #report-notification-text {
+    font-size: 12px;
+  }
+  .report-answer-right,
+  .report-answer-wrong {
+    font-size: 12px;
+  }
+  .ansButton {
     font-size: 15px;
   }
+  #quiz-report-title-text,
+  #quiz-title {
+    font-size: larger;
+  }
+  .quiz-result,
+  h3 {
+    font-size: medium;
+  }
+}
+
+.report-answer-right,
+.report-answer-wrong {
+  padding: 0.7em;
+  overflow: auto;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .report-answer-right {
   border: 3px solid #5f886a35;
-  text-align: center;
-  padding: 0.7em;
 }
 .report-answer-wrong {
   border: 3px solid rgba(255, 0, 0, 0.2);
-  padding: 0.7em;
 }
 
 #score-header-wrapper {
@@ -123,12 +182,7 @@ html {
 .report-wrapper {
   padding: 0.5em;
 }
-.report-question,
-.report-question-wrong {
-  text-align: center;
-  font-size: large;
-  font-weight: bold;
-}
+
 .report-question {
   border-bottom: 2px solid rgba(34, 139, 137, 0.529);
 }
