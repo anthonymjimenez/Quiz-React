@@ -1,5 +1,5 @@
 import React from "react";
-import { Answer } from "./Answer";
+import { Answer } from "../components/Answer";
 
 export const AnswerList = ({
   answers: { questions, index },

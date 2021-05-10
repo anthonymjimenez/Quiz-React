@@ -1,4 +1,4 @@
-import ReportItem from "./ReportItem";
+import ReportItem from "../components/ReportItem";
 import React from "react";
 export default function ReportList({ report }) {
   return (

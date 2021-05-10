@@ -1,5 +1,5 @@
 import React from "react";
-import ReportList from "./ReportList";
+import ReportList from "../containers/ReportList";
 import { scoreFormatted, findCorrectAnswerAmount } from "../utils/utils";
 export const Report = ({ quizLength, report }) => {
   // if index === 0 then right === 0 --> this way when index is reset in toggle so is right answers

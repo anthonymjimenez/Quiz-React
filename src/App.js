@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css'
-import { Quiz } from './Quiz/QuizComponents/Quiz';
+import React from "react";
+import "./App.css";
+import { Quiz } from "./views/Quiz";
 
 function App() {
   return (
-    <div className = 'layout'>
-    <Quiz></Quiz>
+    <div className="layout">
+      <Quiz></Quiz>
     </div>
   );
 }

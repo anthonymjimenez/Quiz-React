@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { AnswerList } from "./AnswerList";
-import { Question } from "./Question";
-import { Report } from "./Report";
-import { Toggle } from "./Toggle";
+import { AnswerList } from "../containers/AnswerList";
+import { Question } from "../components/Question";
+import { Report } from "../components/Report";
+import { Toggle } from "../components/Toggle";
 import { Jumbotron } from "reactstrap";
-import QuestionHeader from "./QuestionHeader";
-import ScoreHeader from "./ScoreHeader";
-import LoadingSpin from "./LoadingSpin";
+import QuestionHeader from "../components/QuestionHeader";
+import ScoreHeader from "../components/ScoreHeader";
+import LoadingSpin from "../components/LoadingSpin";
 
 export const Quiz = () => {
   // hooks used in relation to API Call
