@@ -1,10 +1,17 @@
+## Quiz React
+
 This quiz fetches data from Trivia DB (https://opentdb.com/api_config.php) and selects from different categories and difficulties to display a personalized quiz application.
 
-Technology used:
-Axios,
-React Hooks,
-React,
-he - (decoding library)
+I've been incrementally working on this project for over a year! Last major change I implemented involved removing bootstrap and creating CSS styling.  
+
+
+#### Technology used:
+- Axios
+- React Hooks,
+- React,
+- ES6+,
+- CSS,
+- he(decoding library)
 
 Currently hosted at https://yesnote.netlify.app/
 
